@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParryForge | ADK Boss Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+
+  <main class="app">
+    <aside class="sidebar glass">
+      <div class="brand">
+        <div class="logo">PF</div>
+        <div>
+          <h1>PARRY<span>FORGE</span></h1>
+          <p>Google ADK multi-agent boss designer</p>
+        </div>
+      </div>
+
+      <div class="status-pill">
+        <span class="dot"></span>
+        ADK Backend Ready
+      </div>
+
+      <label>Game Genre</label>
+      <input id="genre" value="Top-down 2D parry roguelike" />
+
+      <label>Core Mechanic</label>
+      <input id="mechanic" value="Parrying enemy projectiles" />
+
+      <label>Difficulty</label>
+      <select id="difficulty">
+        <option>Casual</option>
+        <option selected>Medium-hard</option>
+        <option>Souls-like</option>
+      </select>
+
+      <label>Boss Theme</label>
+      <textarea id="theme">Shield knight who hates the player for killing his son</textarea>
+
+      <button id="generateBtn" class="primary-btn">Generate with ADK</button>
+      <button id="demoBtn" class="secondary-btn">Run Demo Mode</button>
+
+      <div class="mini-note">
+        Demo Mode does not use Gemini quota. Use it for UI polish.
+      </div>
+    </aside>
+
+    <section class="main-panel">
+      <header class="hero glass">
+        <div>
+          <h2>AI Game Design Pipeline</h2>
+          <p>Designer → Balancer → Godot Coder → Critic</p>
+        </div>
+        <button id="copyBtn" class="copy-btn">Copy Result</button>
+      </header>
+
+      <section class="pipeline">
+        <div class="agent-card glass" id="designer">
+          <div class="agent-top">
+            <span class="icon">⚔</span>
+            <div>
+              <h3>Designer Agent</h3>
+              <p>Creates lore, phases, attacks and rewards.</p>
+            </div>
+          </div>
+          <div class="bar"><div></div></div>
+          <small>Waiting</small>
+        </div>
+
+        <div class="agent-card glass" id="balance">
+          <div class="agent-top">
+            <span class="icon">🛡</span>
+            <div>
+              <h3>Balance Agent</h3>
+              <p>Checks fairness, telegraphs and parry windows.</p>
+            </div>
+          </div>
+          <div class="bar"><div></div></div>
+          <small>Waiting</small>
+        </div>
+
+        <div class="agent-card glass" id="godot">
+          <div class="agent-top">
+            <span class="icon">⚙</span>
+            <div>
+              <h3>Godot Code Agent</h3>
+              <p>Creates Godot 4 setup and starter GDScript.</p>
+            </div>
+          </div>
+          <div class="bar"><div></div></div>
+          <small>Waiting</small>
+        </div>
+
+        <div class="agent-card glass" id="critic">
+          <div class="agent-top">
+            <span class="icon">🎯</span>
+            <div>
+              <h3>Critic Agent</h3>
+              <p>Scores originality, balance and usefulness.</p>
+            </div>
+          </div>
+          <div class="bar"><div></div></div>
+          <small>Waiting</small>
+        </div>
+      </section>
+
+      <section class="result-wrap glass">
+        <div class="result-header">
+          <h2>Generated Boss Package</h2>
+          <span id="modeTag">Idle</span>
+        </div>
+
+        <div id="loader" class="loader hidden">
+          <div class="pulse-ring"></div>
+          <p id="thinkingText">Initializing agents...</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="design">Boss Design</button>
+             <button class="tab" data-tab="balance">Balance</button>
+            <button class="tab" data-tab="godot">Godot Setup</button>
+            <button class="tab" data-tab="code">GDScript</button>
+            <button class="tab" data-tab="critic">Critic</button>
+            <button class="tab" data-tab="raw">Raw</button>
+        </div>
+
+<div id="resultCards" class="result-cards">
+  <div class="empty-state">Click “Generate with ADK” or “Run Demo Mode”.</div>
+</div>
+
+<pre id="result" class="hidden"></pre>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
